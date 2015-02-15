@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>AWS Aplication</title>
+
+	<!--jQuery References-->
+	<link rel="stylesheet" href="./js/jquery-ui-1.11.1.custom/jquery-ui.min.css" type="text/css" />
+	<script type="text/javascript" src="./js/jquery-1.11.1.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/jquery-ui-1.11.1.custom/jquery-ui.min.js" charset="utf-8"></script>
+
+	<!-- Mega Menu -->
+	<link href="./css/jquery-mega-drop-down-menu/dcmegamenu.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="./js/jquery-mega-drop-down-menu/jquery.hoverIntent.minified.js" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/jquery-mega-drop-down-menu/jquery.dcmegamenu.1.3.3.min.js" charset="utf-8"></script>
+	<link href="./css/jquery-mega-drop-down-menu/skins/green.css" rel="stylesheet" type="text/css" />
+
+	<!-- jqgrid -->
+	<link rel="stylesheet" href="./js/jqgrid/ui.jqgrid.css" type="text/css">
+	<script type="text/javascript" src="./js/jqgrid/grid.locale-ja.js"></script> <!-- jquery.jqGrid.min.jsより先に呼び出すこと-->
+	<script type="text/javascript" src="js/jqgrid/jquery.jqGrid.min.js"></script>
+
+	<style type="text/css">
+		.demo {
+		    margin: 3px;
+		    width: 770px;
+		    /*padding: 10px;*/
+		}
+
+		#dialog_menu.ui-dialog .ui-dialog-content { border: 0; padding: .5em 1em; background: none; overflow: visible; zoom: 1; }
+
+		/* textareaはリサイズしない
+		.dialog_infomation {
+			resize: none;
+			width:100%;
+			height:100%;
+		}
+
+
+	</style>
+
+
+	<script language="javascript" type="text/javascript">
+		$(document).ready(function(){
+			try{
+				$('#menu').dialog({
+					autoOpen: true,
+					minHeight: 64,
+					minWidth : 100,
+					//title: 'タイトル',
+					height: 100,
+					//width: ($(document).width() - 20),
+					width: 1100,
+					position: { my: 'center top', at: 'center top+3', of: document},
+					closeOnEscape: false,
+					// メニューダイアログ枠をはみ出し内容物を表示する
+					open: function() {
+						$(this.parentNode).attr('id', 'dialog_menu').css({'overflow': 'visible'}).css({'padding-bottom': '0px'});
+						$("div[aria-describedby = 'menu'] .ui-dialog-titlebar-close").hide();
+						$('#menu').css({'padding-bottom':'0px'});
+					}
+				});
+	
+				$("div[aria-describedby = 'menu'] .ui-dialog-title").hide();
+				// タイトルバーの高さ
+				$("div[aria-describedby = 'menu'] .ui-dialog-titlebar").css({'padding-bottom':0, 'padding-top':0, 'height':'5px' });
+	
+				// タイトルバークリック時、メニューをたたむ
+				$("div[aria-describedby = 'menu'] .ui-dialog-titlebar").bind("dblclick", function(){
+					$("div[aria-describedby = 'menu'] .ui-dialog-content").toggle();
+				});
+	
+				$('#mega-menu-7').dcMegaMenu({
+					rowItems: '3',
+					speed: 'fast',
+					effect: 'slide'
+				});
+
+			}catch(e){
+				alert(e);
+			}finally{
+			}
+
+
+		});
+
+	</script>
+
+</head>
+<body>
+
+
+	<div style="display: none;">
+		<div id="menu">
+			<div style="float:left;"><img border="0" src="./images/logo.png" hspace="10"></div>
+			<div class="main demo" style="float:left;">
+				<div class="green">
+					<ul id="mega-menu-7" class="mega-menu">
+						<li><a href="#">ファイル管理</a>
+							<ul>
+								<li><a href="#" onclick="$('#dialog_list').dialog('open')">aaa</a>
+								</li>
+								<li><a href="#" onclick="$('#grid-dialog').dialog('open')">bbb</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#">位置確認</a>
+							<ul>
+								<li><a href="#">aaa</a>
+								</li>
+								<li><a href="#">bbb</a>
+								</li>
+							</ul>
+						</li>
+						<li><a href="#">Information</a>
+							<ul>
+								<li><a href="#" onclick="$('#dialog_AlcoholCheck').dialog('open')">aaa</a></li>
+							</ul>
+						</li>
+						<li><a href="#">Diary</a>
+						</li>
+						<li><a href="#">アクセス</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
