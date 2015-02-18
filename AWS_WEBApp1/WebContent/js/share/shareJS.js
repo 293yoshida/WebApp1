@@ -10,7 +10,10 @@
 function UnimplementedAlert(var funcName){
 	alert("Unimplemented Function : " + funcName);
 }
+//ローカル関数の実装チェックのテストコード
+function CheckUnimplementedMethod(){
 
+}
 
 
 
@@ -42,5 +45,7 @@ function headerDialog(){UnimplementedAlert("headerDialog");};
 function menuDialog(){UnimplementedAlert("menuDialog");};
 //画面ＵＩの設定部分ダイアログ
 function configDialog(){UnimplementedAlert("configDialog");};
+//画面ＵＩのメインコンテンツダイアログ
+function mainDialog(){UnimplementedAlert("mainDialog");};
 
 
